@@ -152,15 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114821521521772164, guid: 4a6ae0a7b0b14c441b8b366561a3cec1,
-        type: 2}
-      propertyPath: axisSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880320203945996, guid: 4a6ae0a7b0b14c441b8b366561a3cec1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a6ae0a7b0b14c441b8b366561a3cec1, type: 2}
   m_IsPrefabAsset: 0
@@ -391,7 +382,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 196f81555c4b8454196982a1e2a8a84c, type: 2}
+  - {fileID: 2100000, guid: 8ea3467e29d72a04fa859bfed70499a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
