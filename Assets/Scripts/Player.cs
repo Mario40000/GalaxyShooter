@@ -11,10 +11,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     public GameObject _laserShoot;
     [SerializeField]
-    public Transform _laserSpawner;
+    public Transform _laserSpawner1;
+    [SerializeField]
+    public Transform _laserSpawner2;
+    [SerializeField]
+    public Transform _laserSpawner3;
     private float _nextFire = 0.0f;
 
     public float fireRate = 0.0f;
+    public bool tripleShoot = false;
     
 	// Use this for initialization
 	void Start ()
@@ -71,8 +76,20 @@ public class Player : MonoBehaviour
         //Comprobamos si ha pasado el cooldown
         if (Time.time > _nextFire)
         {
-            _nextFire = Time.time + fireRate;
-            Instantiate(_laserShoot, _laserSpawner.position, Quaternion.identity);
+            //Si tenemos el triple disparo instaciamos los 3 prefabs
+            if(tripleShoot)
+            {
+                _nextFire = Time.time + fireRate;
+                Instantiate(_laserShoot, _laserSpawner1.position, Quaternion.identity);
+                Instantiate(_laserShoot, _laserSpawner2.position, Quaternion.identity);
+                Instantiate(_laserShoot, _laserSpawner3.position, Quaternion.identity);
+            }
+            //Si no, lanzamos solo uno
+            else
+            {
+                _nextFire = Time.time + fireRate;
+                Instantiate(_laserShoot, _laserSpawner1.position, Quaternion.identity);
+            }
         }
     }
 }
