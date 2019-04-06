@@ -8,14 +8,11 @@ public class LaserController : MonoBehaviour
     //Variables
     [SerializeField]
     private float _laserSpeed = 0.0f;
-    [SerializeField]
-    private float _destroyTime = 0.0f;
-
+    
 	// Use this for initialization
 	void Start ()
     {
-        //Destruimos el laser al cabo del tiepo estipulado
-        Destroy(gameObject, _destroyTime);
+           
 	}
 	
 	// Update is called once per frame
@@ -23,5 +20,11 @@ public class LaserController : MonoBehaviour
     {
         //Hacemos que siempre mueva hacia arriba
         transform.Translate(Vector3.up * _laserSpeed * Time.deltaTime);
+        //Destruimos el laser si sale de la pantalla
+        if (transform.position.y > 6)
+        {
+            Destroy(gameObject);
+        }
     }
+
 }

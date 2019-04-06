@@ -17,9 +17,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     public Transform _laserSpawner3;
     private float _nextFire = 0.0f;
-
+    [SerializeField]
+    private float _powersCounter = 0.0f;
+    
     public float fireRate = 0.0f;
     public bool tripleShoot = false;
+    public bool speedBoost = false;
+    public float boostSpeed = 0.0f;
     
 	// Use this for initialization
 	void Start ()
@@ -48,9 +52,19 @@ public class Player : MonoBehaviour
         //Movimiento sin fisicas
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.right * _axisSpeed * horizontalInput * Time.deltaTime);
-        transform.Translate(Vector3.up * _axisSpeed * verticalInput * Time.deltaTime);
 
+        //Si tenemos el power de velocidad o si no
+        if(speedBoost)
+        {
+            transform.Translate(Vector3.right * _axisSpeed * horizontalInput * Time.deltaTime * boostSpeed);
+            transform.Translate(Vector3.up * _axisSpeed * verticalInput * Time.deltaTime * boostSpeed);
+        }
+        else
+        {
+            transform.Translate(Vector3.right * _axisSpeed * horizontalInput * Time.deltaTime);
+            transform.Translate(Vector3.up * _axisSpeed * verticalInput * Time.deltaTime);
+        }
+        
         //No podremos pasar de los limites de la pantalla
         if (transform.position.y > 4.25)
         {
@@ -92,4 +106,30 @@ public class Player : MonoBehaviour
             }
         }
     }
+    //Metodo para activar el power disparo triple
+    public void TripleShotPowerOn ()
+    {
+        tripleShoot = true;
+        StartCoroutine(TripleShotCounter());
+    }
+    //Metodo para el contador de triple disparo
+    IEnumerator TripleShotCounter ()
+    {
+        yield return new WaitForSeconds(_powersCounter);
+        tripleShoot = false;
+    }
+
+    //Metdo para activar la super velocidad
+    public void SpeedPowerOn ()
+    {
+        speedBoost = true;
+        StartCoroutine(SpeedCounter());
+    }
+    //Metodo para el contador de la velocidad
+    IEnumerator SpeedCounter ()
+    {
+        yield return new WaitForSeconds(_powersCounter);
+        speedBoost = false;
+    }
+    
 }
