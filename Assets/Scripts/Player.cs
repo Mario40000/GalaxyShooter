@@ -23,24 +23,55 @@ public class Player : MonoBehaviour
     private GameObject _shieldContainer;
     [SerializeField]
     private int _shieldEndurance = 0;
+    private GameObject _gameManager;
     
     public float fireRate = 0.0f;
     public bool tripleShoot = false;
     public bool speedBoost = false;
     public bool shield = false;
     public float boostSpeed = 0.0f;
-    
-	// Use this for initialization
-	void Start ()
+    public GameObject powerUpSound;
+    public GameObject damage1;
+    public GameObject damage2;
+
+    // Use this for initialization
+    void Start ()
     {
+        _gameManager = GameObject.Find("GameManager");
+        DamageHandler();
         _shieldContainer.SetActive(false);
-	}
+        powerUpSound = GameObject.Find("PowerUpSound");
+        
+    }
 	
 	void FixedUpdate ()
     {
         Movement();
     }
 
+    //Damage handler
+    void DamageHandler ()
+    {
+        if(_gameManager.GetComponent<GameManager>().playerLives >= 2)
+        {
+            damage1.SetActive(false);
+            damage2.SetActive(false);
+        }
+        else if (_gameManager.GetComponent<GameManager>().playerLives == 1 )
+        {
+            damage1.SetActive(true);
+            damage2.SetActive(false);
+        }
+        else if (_gameManager.GetComponent<GameManager>().playerLives == 0)
+        {
+            damage1.SetActive(true);
+            damage2.SetActive(true);
+        }
+        else
+        {
+
+        }
+    }
     // Update is called once per frame
     private void Update()
     {
@@ -115,6 +146,7 @@ public class Player : MonoBehaviour
     public void TripleShotPowerOn ()
     {
         tripleShoot = true;
+        powerUpSound.GetComponent<AudioSource>().Play();
         StartCoroutine(TripleShotCounter());
     }
     //Metodo para el contador de triple disparo
@@ -128,6 +160,7 @@ public class Player : MonoBehaviour
     public void SpeedPowerOn ()
     {
         speedBoost = true;
+        powerUpSound.GetComponent<AudioSource>().Play();
         StartCoroutine(SpeedCounter());
     }
     //Metodo para el contador de la velocidad
@@ -141,6 +174,7 @@ public class Player : MonoBehaviour
     public void ShieldsOn ()
     {
         shield = true;
+        powerUpSound.GetComponent<AudioSource>().Play();
         _shieldContainer.SetActive(true);
     }
 

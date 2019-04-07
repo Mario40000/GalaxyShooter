@@ -13,6 +13,7 @@ public class EnemyIA : MonoBehaviour
 
     public GameObject explosion;
     public GameObject playerExplosion;
+    public int valueScore = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -50,6 +51,8 @@ public class EnemyIA : MonoBehaviour
                 //Si el enemigo no tiene resistencia es destruido
                 if (life < 1)
                 {
+                    _manager.GetComponent<GameManager>().score += valueScore;
+                    _manager.GetComponent<GameManager>().UpdateScore();
                     Instantiate(explosion, transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
@@ -61,6 +64,8 @@ public class EnemyIA : MonoBehaviour
                 //Si el enemigo no tiene resistencia es destruido
                 if (life < 1)
                 {
+                    _manager.GetComponent<GameManager>().score += valueScore;
+                    _manager.GetComponent<GameManager>().UpdateScore();
                     Instantiate(explosion, transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
@@ -77,6 +82,8 @@ public class EnemyIA : MonoBehaviour
             //Si el enemigo no tiene resistencia es destruido
             if (life < 1)
             {
+                _manager.GetComponent<GameManager>().score += valueScore;
+                _manager.GetComponent<GameManager>().UpdateScore();
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
