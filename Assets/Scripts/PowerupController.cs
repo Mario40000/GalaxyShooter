@@ -13,6 +13,10 @@ public class PowerupController : MonoBehaviour {
     void FixedUpdate()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
+        if(transform.position.y < -7.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //Miramos si hemos colisionado con algo
@@ -35,7 +39,7 @@ public class PowerupController : MonoBehaviour {
                 }
                 else if(powerUpID == 2)
                 {
-
+                    player.ShieldsOn();
                 }
                 
             }

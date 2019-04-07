@@ -40,16 +40,34 @@ public class EnemyIA : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            _manager.GetComponent<GameManager>().PlayerRespawn();
-            Instantiate(playerExplosion, other.transform.position, Quaternion.identity);
-            Destroy(other.gameObject);
-            life--;
-            //Si el enemigo no tiene resistencia es destruido
-            if(life < 1)
+            //Si el player no tiene escudo
+            if(other.GetComponent<Player>().shield == false)
             {
-                Instantiate(explosion, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                _manager.GetComponent<GameManager>().PlayerRespawn();
+                Instantiate(playerExplosion, other.transform.position, Quaternion.identity);
+                Destroy(other.gameObject);
+                life--;
+                //Si el enemigo no tiene resistencia es destruido
+                if (life < 1)
+                {
+                    Instantiate(explosion, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
             }
+            else
+            {
+                //Si el player tiene escudo
+                life--;
+                //Si el enemigo no tiene resistencia es destruido
+                if (life < 1)
+                {
+                    Instantiate(explosion, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+                other.GetComponent<Player>().IsShieldActive();
+            }
+            
+            
             
         }
         else if(other.tag == "Laser")

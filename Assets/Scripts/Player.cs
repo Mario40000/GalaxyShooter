@@ -19,16 +19,21 @@ public class Player : MonoBehaviour
     private float _nextFire = 0.0f;
     [SerializeField]
     private float _powersCounter = 0.0f;
+    [SerializeField]
+    private GameObject _shieldContainer;
+    [SerializeField]
+    private int _shieldEndurance = 0;
     
     public float fireRate = 0.0f;
     public bool tripleShoot = false;
     public bool speedBoost = false;
+    public bool shield = false;
     public float boostSpeed = 0.0f;
     
 	// Use this for initialization
 	void Start ()
     {
-		
+        _shieldContainer.SetActive(false);
 	}
 	
 	void FixedUpdate ()
@@ -131,5 +136,25 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(_powersCounter);
         speedBoost = false;
     }
-    
+
+    //Metodo para activar los escudos
+    public void ShieldsOn ()
+    {
+        shield = true;
+        _shieldContainer.SetActive(true);
+    }
+
+    //Metodo para comprobar que aun tenemos escudo y apagarlo si no es así
+    public void IsShieldActive ()
+    {
+        if(_shieldEndurance > 0)
+        {
+            _shieldEndurance--;
+        }
+        else
+        {
+            shield = false;
+            _shieldContainer.SetActive(false);
+        }
+    }
 }

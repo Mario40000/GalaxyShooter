@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212874602586014772}
   - component: {fileID: 58476892526819340}
   - component: {fileID: 114416723604695264}
+  - component: {fileID: 95840495436353242}
   m_Layer: 0
   m_Name: SpeedPowerUp
   m_TagString: Untagged
@@ -57,6 +58,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.0071422257}
   serializedVersion: 2
   m_Radius: 1.124523
+--- !u!95 &95840495436353242
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863444695401236}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 035aeeb4bb34a0043bdcae5ef1a865df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114416723604695264
 MonoBehaviour:
   m_ObjectHideFlags: 1

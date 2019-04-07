@@ -113,48 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &318396002
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4292347765470578, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292347765470578, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 4.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292347765470578, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292347765470578, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292347765470578, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292347765470578, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292347765470578, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292347765470578, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &510064656
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +308,15 @@ MonoBehaviour:
   _playerPrefab: {fileID: 1880320203945996, guid: 4a6ae0a7b0b14c441b8b366561a3cec1,
     type: 2}
   _playerSpawner: {fileID: 1537533538}
+  _enemyShip: {fileID: 1201768279243312, guid: 68404a43c13668e4faee1a52942fa250, type: 2}
+  _powerUps:
+  - {fileID: 1489293964801306, guid: c95b8c935531cc24fbe8bd40bbe0164c, type: 2}
+  - {fileID: 1863444695401236, guid: 242dd277c26c5dc42b74ff6af1e37754, type: 2}
+  - {fileID: 1196062039784802, guid: e4483e9d6adc17649acf6c161bf9fefc, type: 2}
   playerLives: 3
+  startGameDelay: 1
+  enemySpawnDelay: 4
+  powerUpsDelay: 15
 --- !u!1 &1145593739
 GameObject:
   m_ObjectHideFlags: 0

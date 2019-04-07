@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1489293964801306}
+  m_RootGameObject: {fileID: 1196062039784802}
   m_IsPrefabAsset: 1
---- !u!1 &1489293964801306
+--- !u!1 &1196062039784802
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4856032748853698}
-  - component: {fileID: 212923091669213760}
-  - component: {fileID: 58823521997926884}
-  - component: {fileID: 114207512937745434}
-  - component: {fileID: 95484190492084850}
+  - component: {fileID: 4636196335907730}
+  - component: {fileID: 212068765791584022}
+  - component: {fileID: 95763759352663838}
+  - component: {fileID: 114248608692224312}
+  - component: {fileID: 58349457071511166}
   m_Layer: 0
-  m_Name: TripleShotpowerUp
+  m_Name: ShieldPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4856032748853698
+--- !u!4 &4636196335907730
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489293964801306}
+  m_GameObject: {fileID: 1196062039784802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 2.08, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58823521997926884
+--- !u!58 &58349457071511166
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489293964801306}
+  m_GameObject: {fileID: 1196062039784802}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -57,17 +57,17 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.164147
---- !u!95 &95484190492084850
+  m_Radius: 1.2435206
+--- !u!95 &95763759352663838
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489293964801306}
+  m_GameObject: {fileID: 1196062039784802}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5fcd3acc3459ab64ba42aeb8d541e8a4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1d0566c4f3018c349bec85fc016c3206, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -76,25 +76,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114207512937745434
+--- !u!114 &114248608692224312
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489293964801306}
+  m_GameObject: {fileID: 1196062039784802}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 427df363ff7563548973c73f57620708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  powerUpID: 0
---- !u!212 &212923091669213760
+  powerUpID: 2
+--- !u!212 &212068765791584022
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489293964801306}
+  m_GameObject: {fileID: 1196062039784802}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -121,10 +121,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2073970265
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed6681d697652144a913093bf7ad1d43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2f5f1638e62545a09c5d6e6d3643101, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
