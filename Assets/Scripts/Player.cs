@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _shieldEndurance = 0;
     private GameObject _gameManager;
+    private Animator _anim;
     
     public float fireRate = 0.0f;
     public bool tripleShoot = false;
@@ -33,10 +34,12 @@ public class Player : MonoBehaviour
     public GameObject powerUpSound;
     public GameObject damage1;
     public GameObject damage2;
+    
 
     // Use this for initialization
     void Start ()
     {
+        _anim = GetComponent<Animator>();
         _gameManager = GameObject.Find("GameManager");
         DamageHandler();
         _shieldContainer.SetActive(false);
@@ -79,6 +82,30 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Shoot();
+        }
+
+        //Comprobamos en que direccion vamos y aplicamos las animaciones correspondientes
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            _anim.SetBool("TurnLeft", true);
+            _anim.SetBool("TurnRight", false);
+        }
+
+        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            _anim.SetBool("TurnLeft", false);
+            _anim.SetBool("TurnRight", false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            _anim.SetBool("TurnLeft", false);
+            _anim.SetBool("TurnRight", true);
+        }
+        else if(Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            _anim.SetBool("TurnLeft", false);
+            _anim.SetBool("TurnRight", false);
         }
     }
 
