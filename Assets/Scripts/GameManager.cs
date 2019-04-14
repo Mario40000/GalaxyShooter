@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -15,7 +16,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] _powerUps;
     private bool _isGameStart = false;
+    private bool isGamepaused = true;
+    private Animator pauseAnimator;
 
+    public GameObject pauseMenu;
+    public bool isCoopMode = false;
+    public GameObject coopPlayer1;
+    public GameObject coopPlauer2;
+    public Transform playerSpawner2;
     public int playerLives;
     public float startGameDelay = 0.0f;
     public float enemySpawnDelay = 0.0f;
@@ -31,6 +39,11 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        pauseAnimator = GameObject.Find("PauseMenu").GetComponent<Animator>();
+        //Le decimos al animator del menu de pause que ignore el deltaTime asi podemos
+        //pausar y hacer correr una animacion
+        pauseAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        pauseMenu.SetActive(false);
         //Instantiate(_playerPrefab, _playerSpawner.position, Quaternion.identity);
         TitleScreenOn();
     }
@@ -45,6 +58,33 @@ public class GameManager : MonoBehaviour
                 TitleScreenOff();
             }
         }
+
+        //Volvemos a la pantalla de titulo
+        if(Input.GetButtonDown("Cancel") && isGamepaused == false)
+        {
+            PauseGame();
+        }
+    }
+
+    //Metodo para pausar
+    void PauseGame ()
+    {
+        isGamepaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+    //Quitar pausa
+    public void PauseQuit ()
+    {
+        isGamepaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    //salir al menu
+    public void QuitGame ()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     //Metodo para la pantalla inicial y empezar el juego
@@ -56,6 +96,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
         livesPoster.SetActive(true);
         StartCoroutine(StartCounter());
+        isGamepaused = false;
     }
     //Metodo para mostrar la pantalla de titulo antes de empoezar y al acabar
     void TitleScreenOn ()

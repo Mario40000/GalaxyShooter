@@ -8,6 +8,8 @@ W A S D or Arrows to move the ship.
 
 Space for fire.
 
+ESC for pause game.
+
 -------------------------------------------------------------------------------
 # Features
 
