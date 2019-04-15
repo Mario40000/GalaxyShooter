@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public GameObject titleImage;
     public Text startText;
     public Text scoreText;
+    public Text highScoreText;
+    public int highScore = 0;
     public int score = 0;
 
 	// Use this for initialization
@@ -106,6 +108,8 @@ public class GameManager : MonoBehaviour
         livesPoster.SetActive(false);
         startText.text = " Press Space bar to start";
         scoreText.text = "";
+        //Cargamos el highScore desde la memoria
+        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
 
     }
     //Metodo para eliminar al player
@@ -132,7 +136,7 @@ public class GameManager : MonoBehaviour
     //Contador para inicio de la partida
     IEnumerator StartCounter ()
     {
-        
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
         score = 0;
         playerLives = 3;
         UpdateScore();
@@ -202,6 +206,14 @@ public class GameManager : MonoBehaviour
         else
         {
             scoreText.text = "";
+        }
+        //Comprobamos si el highScore ha aumentado
+        if(score > highScore)
+        {
+            highScore = score;
+            //Guardamos el highScore en memoria
+            PlayerPrefs.SetInt("HighScore", highScore);
+            highScoreText.text = "High Score: " + highScore.ToString();
         }
         
     }
